@@ -12,17 +12,19 @@ namespace ManagementSystem.Controllers
 {
     public class DevicesController : Controller
     {
-        private readonly ManagementSystemContext _context;
+        private readonly ManagementSystemContext db;
 
-        public DevicesController(ManagementSystemContext context)
+        public DevicesController(ManagementSystemContext db)
         {
-            _context = context;
+            this.db = db;
         }
 
         // GET: Devices
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Device.ToListAsync());
+            var device = await db.Device.OrderBy(d => d.Name).ToListAsync();
+
+            return View(device);
         }
 
         // GET: Devices/Details/5
@@ -33,7 +35,7 @@ namespace ManagementSystem.Controllers
                 return NotFound();
             }
 
-            var device = await _context.Device
+            var device = await db.Device
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (device == null)
             {
@@ -59,8 +61,8 @@ namespace ManagementSystem.Controllers
             if (ModelState.IsValid)
             {
                 device.Id = Guid.NewGuid();
-                _context.Add(device);
-                await _context.SaveChangesAsync();
+                db.Add(device);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(device);
@@ -74,7 +76,7 @@ namespace ManagementSystem.Controllers
                 return NotFound();
             }
 
-            var device = await _context.Device.FindAsync(id);
+            var device = await db.Device.FindAsync(id);
             if (device == null)
             {
                 return NotFound();
@@ -98,8 +100,8 @@ namespace ManagementSystem.Controllers
             {
                 try
                 {
-                    _context.Update(device);
-                    await _context.SaveChangesAsync();
+                    db.Update(device);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,7 +127,7 @@ namespace ManagementSystem.Controllers
                 return NotFound();
             }
 
-            var device = await _context.Device
+            var device = await db.Device
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (device == null)
             {
@@ -140,15 +142,15 @@ namespace ManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var device = await _context.Device.FindAsync(id);
-            _context.Device.Remove(device);
-            await _context.SaveChangesAsync();
+            var device = await db.Device.FindAsync(id);
+            db.Device.Remove(device);
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DeviceExists(Guid id)
         {
-            return _context.Device.Any(e => e.Id == id);
+            return db.Device.Any(e => e.Id == id);
         }
     }
 }
