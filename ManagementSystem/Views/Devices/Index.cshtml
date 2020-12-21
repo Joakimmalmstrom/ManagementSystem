@@ -4,10 +4,10 @@
     ViewData["Title"] = "Devices";
 }
 
-<h1>Devices</h1>
+<h1 style="margin-bottom:20px">Devices</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New Device</a>
+    <a asp-action="Create" style="margin-bottom:10px" class="btn btn-success">Create New Device</a>
 </p>
 
 <div class="row">
@@ -16,7 +16,7 @@
         <div class="col-sm-6 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)  <span style="position:absolute; right:25px"><status has-status="@item.Status"></status></span></h5>
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name) <span style="position:absolute; right:25px">STATUS: <status has-status="@item.Status"></status></span></h5>
                     <p class="card-text">Id: <i>@Html.DisplayFor(modelItem => item.Id)</i></p>
                     <p class="card-text">Data: <i>@Html.DisplayFor(modelItem => item.Data)</i></p>
                     <a href="#" class="btn btn-primary">Skicka kommando</a>
