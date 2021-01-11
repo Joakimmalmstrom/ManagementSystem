@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem", "Managem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementSystem.Server", "ManagementSystem.Server\ManagementSystem.Server.csproj", "{5E74AB30-0548-4991-833A-02A0BCE47424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions", "Functions\Functions.csproj", "{A2466003-CF11-4D8F-AED8-CA06EAF9C12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functions", "Functions\Functions.csproj", "{A2466003-CF11-4D8F-AED8-CA06EAF9C12A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

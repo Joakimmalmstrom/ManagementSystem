@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Functions.Models
 {
-    public class Device
+    public class Robot
     {
         public string id { get; set; }
         public string name { get; set; }

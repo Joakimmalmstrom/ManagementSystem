@@ -18,15 +18,15 @@ namespace Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             [CosmosDB(databaseName:"CosmosDB",
             collectionName:"Devices",
-            ConnectionStringSetting = "CosmosDbConnection",
+            ConnectionStringSetting = "CosmosDb",
             CreateIfNotExists = true
-            )] out Device cosmos,
+            )] out Robot cosmos,
             ILogger log)
         {
             try
             {
                 var json = new StreamReader(req.Body).ReadToEnd();
-                var data = JsonConvert.DeserializeObject<Device>(json);
+                var data = JsonConvert.DeserializeObject<Robot>(json);
 
                 cosmos = data;
 

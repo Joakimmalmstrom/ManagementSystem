@@ -19,9 +19,9 @@ namespace Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, [CosmosDB(
                 databaseName: "CosmosDB",
                 collectionName: "Devices",
-                ConnectionStringSetting = "CosmosDbConnection",
+                ConnectionStringSetting = "CosmosDb",
                 SqlQuery = "SELECT * FROM c"
-                )] IEnumerable<Device> devices,
+                )] IEnumerable<Robot> devices,
             ILogger log)
         {
             if (devices is null)

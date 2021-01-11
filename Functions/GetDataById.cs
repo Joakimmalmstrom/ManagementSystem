@@ -19,10 +19,9 @@ namespace Functions
             [CosmosDB(
                 databaseName: "CosmosDB",
                 collectionName: "Devices",
-                ConnectionStringSetting = "CosmosDbConnection",
+                ConnectionStringSetting = "CosmosDb",
                 Id = "{Query.id}"
-                //PartitionKey = ""
-                )] Device device,
+                )] Robot device,
             ILogger log)
         {
             if (device is null)
