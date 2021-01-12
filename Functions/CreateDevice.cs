@@ -31,12 +31,12 @@ namespace Functions
             try
             {
                 var device = await registry.AddDeviceAsync(new Device(data.deviceId));
-                var payload = new StringContent(JsonConvert.SerializeObject(device.Id), Encoding.UTF8, "application/json");
+                var payload = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
                 await client.PostAsync(Environment.GetEnvironmentVariable("SaveDeviceToCosmosDbUri"), payload);
 
                 return new OkObjectResult(device);
             }
-            catch 
+            catch
             {
                 return new BadRequestResult();
             }
