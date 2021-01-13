@@ -9,7 +9,7 @@ namespace WaterCutter
 {
     class Program
     {
-        private static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=management-iot.azure-devices.net;DeviceId=1;SharedAccessKey=OTh8Q4h56GhO0pF6gUWQrgy9O4G/h3DZc4HqsWq20AM=");
+        private static DeviceClient deviceClient = DeviceClient.CreateFromConnectionString("HostName=management-iot.azure-devices.net;DeviceId=1;SharedAccessKey=OTh8Q4h56GhO0pF6gUWQrgy9O4G/h3DZc4HqsWq20AM=", TransportType.Mqtt);
         private static bool sending = false;
 
         static async Task Main(string[] args)
@@ -20,8 +20,20 @@ namespace WaterCutter
             await deviceClient.SetMethodHandlerAsync("stop", StopAsync, null);
 
             await SendDataAsync();
+            await RecieveDataAsync();
 
             Console.ReadKey();
+        }
+
+        static async Task RecieveDataAsync()
+        {
+            while (true)
+            {
+                var data = await deviceClient.ReceiveAsync();
+                var msg = Encoding.UTF8.GetString(data.GetBytes());
+
+                Console.WriteLine(msg);
+            }
         }
 
         static async Task SendDataAsync()
@@ -35,8 +47,6 @@ namespace WaterCutter
                     Console.WriteLine("Message has been sent");
                     await Task.Delay(5000);
                 }
-
-                await Task.Delay(1000);
             }
         }
 
