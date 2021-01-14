@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Functions", "Functions\Func
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterCutter", "WaterCutter\WaterCutter.csproj", "{C2B1D742-EEEE-4EB0-A836-C374526C35C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp", "ServiceApp\ServiceApp.csproj", "{4AB1100B-8D89-485B-B5A5-0CF6F7A6138C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp", "ServiceApp\ServiceApp.csproj", "{4AB1100B-8D89-485B-B5A5-0CF6F7A6138C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{A0804723-C106-437B-A313-47F630214F44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4AB1100B-8D89-485B-B5A5-0CF6F7A6138C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AB1100B-8D89-485B-B5A5-0CF6F7A6138C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AB1100B-8D89-485B-B5A5-0CF6F7A6138C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0804723-C106-437B-A313-47F630214F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0804723-C106-437B-A313-47F630214F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0804723-C106-437B-A313-47F630214F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0804723-C106-437B-A313-47F630214F44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

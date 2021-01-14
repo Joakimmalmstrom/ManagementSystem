@@ -1,4 +1,5 @@
 ﻿using Microsoft.Azure.Devices;
+using Shared;
 using System;
 using System.Threading.Tasks;
 

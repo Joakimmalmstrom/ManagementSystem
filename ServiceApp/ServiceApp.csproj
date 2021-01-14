@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.Azure.Devices" Version="1.28.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
 </Project>
